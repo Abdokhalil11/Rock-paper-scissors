@@ -1,0 +1,406 @@
+* {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  box-sizing: border-box;
+  transition: .5s;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 20px;
+  background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+}
+
+
+.screen {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 450px;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 5px;
+  justify-content: space-between;
+}
+
+@media (max-width:767px) {
+  .screen {
+    width: calc(100% - 20px);
+  }
+}
+
+.screen .text span {
+  display: block;
+  font-size: 30px;
+  color: white;
+  margin-right: 20px;
+  font-weight: 700;
+  margin-top: -10px;
+}
+
+@media (max-width:767px) {
+  .screen .text span {
+    font-size: 15px;
+    margin-top: -4px;
+  }
+}
+
+.screen .points {
+  height: 92px;
+  width: 100px;
+  background-color: #f9f9fb;
+  border-radius: 10px;
+}
+
+@media (max-width:767px) {
+  .screen .points {
+    height: 80px;
+  }
+}
+
+.screen .points span:first-child {
+  color: hsl(229, 64%, 46%);
+  display: block;
+  text-align: center;
+  font-size: 20px;
+}
+
+.screen .points .score {
+  color: hsl(229, 25%, 31%);
+  display: block;
+  text-align: center;
+  font-size: 50px;
+}
+
+@media (max-width:767px) {
+  .screen .points .score {
+    font-size: 40px;
+  }
+}
+
+.types {
+  position: relative;
+  margin: 150px auto;
+  width: fit-content;
+}
+
+.types>img {
+  position: relative;
+  z-index: -1;
+}
+
+@media (max-width:767px) {
+  .types>img {
+
+    height: 250px;
+  }
+}
+
+
+.photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #efecf2;
+  box-shadow: 0 7px 0 inset #bec1d4;
+  position: absolute;
+}
+
+@media (max-width:767px) {
+  .photo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.photo img {
+  width: 50px;
+}
+
+@media (max-width:767px) {
+  .photo img {
+  }
+}
+
+.photo::before {
+  content: "";
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+}
+
+@media (max-width:767px) {
+  .photo::before {
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+  }
+}
+
+
+.photo.paper {
+  left: 0;
+  top: -80px;
+}
+
+@media (max-width:767px) {
+  .photo.paper {
+    left: 0;
+    top: -20px;
+  }
+}
+
+.photo.paper::before {
+  background-image: linear-gradient(to left, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  box-shadow: 0 6px 0 hsl(230, 89%, 62%);
+}
+
+.photo.scissors {
+  right: 0;
+  top: -80px;
+}
+
+@media (max-width:767px) {
+  .photo.scissors {
+    right: 0;
+    top: -20px;
+  }
+}
+
+.photo.scissors::before {
+  background-image: linear-gradient(to left, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  box-shadow: 0 6px 0 hsl(39, 89%, 49%);
+
+}
+
+.photo.rock {
+  left: 95px;
+  bottom: 0;
+}
+
+@media (max-width:767px) {
+  .photo.rock {
+    left: 100px;
+    bottom: 0;
+  }
+}
+
+.photo.rock::before {
+  background-image: linear-gradient(to left, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  box-shadow: 0 6px 0 hsl(349, 71%, 52%);
+}
+
+
+.rule{
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+.rule span{
+  width: 120px;
+  height: 20px;
+  border: 1px solid #f9f9fb;
+  color: #f9f9fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 17px;
+  margin-left: 10px;
+}
+.rule a{
+  width: 120px;
+  height: 20px;
+  border: 1px solid #f9f9fb;
+  color: #f9f9fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 17px;
+  text-decoration: none;
+}
+
+@media (max-width:767px) {
+  .rule {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+  }
+}
+
+.rule-pop {
+  width: 300px;
+  height: 320px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.rule-pop.hide {
+  display: none;
+}
+
+.rule-pop .close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rule-pop .close span {
+  font-size: 30px;
+  color: #3c4163;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.rule-pop>img {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.select {
+  margin-top: 120px;
+  position: relative;
+}
+
+@media (max-width:767px) {
+  .select {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 50px;
+  }
+}
+
+.select.hide {
+  display: none;
+}
+
+.select .text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media (max-width:767px) {
+  .select .text {
+    justify-content: space-around;
+  }
+}
+
+.select .text span {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: white;
+}
+
+@media (max-width:767px) {
+  .select .text span {
+    font-size: 13px;
+  }
+}
+
+.select .fight {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+.select .fight .user,
+.select .fight .random {
+  background-color: #17223e;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+@media (max-width:767px) {
+
+  .select .fight .user,
+  .select .fight .random {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.combined {
+  position: absolute;
+}
+
+@media (max-width:767px) {
+  .combined {
+    bottom: -70%;
+  }
+}
+
+.select .combined .result span:first-child {
+  background: transparent;
+  font-size: 60px;
+  color: white;
+  display: block;
+}
+
+.select .combined .again {
+  width: 100%;
+  height: 37px;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.select .user .fight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: -1;
+}
+
+.select .fight .photo {
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.select .fight .photo::before {
+  width: 250px;
+  height: 250px;
+}
+
+@media (max-width:767px) {
+  .select .fight .photo::before {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.select .fight .photo img {
+  width: 100px;
+}
+
+@media (max-width:767px) {
+  .select .fight .photo img {
+    width: 50px;
+  }
+}
